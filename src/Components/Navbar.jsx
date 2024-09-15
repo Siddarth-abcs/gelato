@@ -1,385 +1,49 @@
-"use client";
-import React from "react";
-import Button from "@mui/material/Button";
-import HeadsetMicIcon from "@mui/icons-material/HeadsetMic";
-import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
-import PersonIcon from "@mui/icons-material/Person";
-import ArrowDropDownIcon from "@mui/icons-material/ArrowDropDown";
-import LanguageIcon from "@mui/icons-material/Language";
-
-import Menu from "@mui/material/Menu";
-import MenuItem from "@mui/material/MenuItem";
-import Fade from "@mui/material/Fade";
+import {
+  Button,
+  Card,
+  AppBar,
+  Toolbar,
+  Typography,
+  IconButton,
+} from "@mui/material";
+import MenuIcon from "@mui/icons-material/Menu";
 
 const Navbar = () => {
-  const [anchorEl, setAnchorEl] = React.useState(null);
-  const open = Boolean(anchorEl);
-  const handleClick = (event) => {
-    setAnchorEl(event.currentTarget);
-  };
-  const handleClose = () => {
-    setAnchorEl(null);
-  };
-
   return (
-    // border-b-2 border-gray-200
-    <div>
-      <nav className="h-16 border-b-2 border-gray-200 bg-white flex justify-center">
-        {/*top navbar Container */}
-        <div className="w-5/6 flex items-center justify-between">
-          {/* Logo */}
-          <div>
-            <img src="/gelato_logo.svg" alt="Gelato" className="h-8" />
-          </div>
+    <div className="h-screen bg-gray-100">
+      {/* Navbar */}
+      <AppBar position="static" className="bg-blue-500">
+        <Toolbar>
+          <IconButton
+            edge="start"
+            color="inherit"
+            aria-label="menu"
+            sx={{ mr: 2 }}
+          >
+            <MenuIcon />
+          </IconButton>
+          <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
+            MUI Navbar
+          </Typography>
+          <Button color="inherit">Login</Button>
+        </Toolbar>
+      </AppBar>
 
-          {/* Desktop nav buttons */}
-          <div className="flex items-center space-x-2">
-            {/* Contact Us */}
-            <Button
-              variant="text"
-              sx={{
-                borderRadius: "50px",
-                textTransform: "none",
-                color: "black",
-                px: 1.5,
-                fontWeight: 550, // Setting font weight here
-                "&:hover": {
-                  backgroundColor: "lightgray",
-                },
-              }}
-            >
-              <HeadsetMicIcon sx={{ mr: 1 }} />
-              Contact us
-            </Button>
-
-            {/* Currency Selector */}
-            <Button
-              variant="text"
-              sx={{
-                borderRadius: "50px",
-                textTransform: "none",
-                color: "black",
-                px: 1.5,
-
-                fontWeight: 550, // Setting font weight here
-
-                "&:hover": {
-                  backgroundColor: "lightgray",
-                },
-              }}
-            >
-              <LanguageIcon />
-              <span className="mx-1">IN/INR</span>
-              <ArrowDropDownIcon />
-            </Button>
-
-            {/* Cart */}
-            <Button
-              variant="text"
-              sx={{
-                borderRadius: "50px",
-                textTransform: "none",
-                color: "black",
-                px: 1.5,
-
-                fontWeight: 550, // Setting font weight here
-
-                "&:hover": {
-                  backgroundColor: "lightgray",
-                },
-              }}
-            >
-              <ShoppingCartIcon sx={{ mr: 1 }} />
-              Cart
-            </Button>
-
-            {/* Sign In */}
-            <Button
-              variant="text"
-              sx={{
-                borderRadius: "50px",
-                textTransform: "none",
-                color: "black",
-                px: 1.5,
-
-                fontWeight: 550, // Setting font weight here
-
-                "&:hover": {
-                  backgroundColor: "lightgray",
-                },
-              }}
-            >
-              <PersonIcon sx={{ mr: 1 }} />
-              Sign in
-            </Button>
-
-            {/* Sign Up */}
-            <Button
-              variant="contained"
-              sx={{
-                borderRadius: "50px",
-                textTransform: "none",
-                backgroundColor: "black",
-                px: 1.5,
-
-                fontWeight: 550, // Setting font weight here
-
-                color: "white",
-                "&:hover": {
-                  color: "darkgray",
-                },
-              }}
-            >
-              Sign up for free
-            </Button>
-          </div>
-        </div>
-      </nav>
-      {/* dasktop bottom navbar */}
-      <nav class="flex justify-center items-center border-b-2 border-gray-200">
-        {/* <!-- Left side: Navigation links --> */}
-        <div class="w-5/6 flex">
-          {/* <!-- Products dropdown --> */}
-          <div class="relative group">
-            <button class="text-black font-semibold px-4 py-3 inline-flex items-center hover:bg-blue-200">
-              Products{" "}
-              <svg
-                class="w-4 h-4 ml-1"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
-                  d="M19 9l-7 7-7-7"
-                ></path>
-              </svg>
-            </button>
-            {/* <!-- Dropdown --> */}
-            <div class="absolute hidden group-hover:block bg-white shadow-lg mt-1 w-48">
-              <a
-                href="#"
-                class="block px-4 py-2 text-gray-700 hover:bg-gray-100"
-              >
-                Bestsellers
-              </a>
-              <a
-                href="#"
-                class="block px-4 py-2 text-gray-700 hover:bg-gray-100"
-              >
-                New Arrivals
-              </a>
-            </div>
-          </div>
-          {/* <!-- Start selling dropdown --> */}
-          <div class="relative group">
-            <button class="text-black font-semibold px-4 py-3 inline-flex items-center hover:bg-blue-200">
-              Start Selling{" "}
-              <svg
-                class="w-4 h-4 ml-1"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
-                  d="M19 9l-7 7-7-7"
-                ></path>
-              </svg>
-            </button>
-            <div class="absolute hidden group-hover:block bg-white shadow-lg mt-1 w-48">
-              <a
-                href="#"
-                class="block px-4 py-2 text-gray-700 hover:bg-gray-100"
-              >
-                How it works
-              </a>
-              <a
-                href="#"
-                class="block px-4 py-2 text-gray-700 hover:bg-gray-100"
-              >
-                Pricing
-              </a>
-            </div>
-          </div>
-          {/* <!-- Tools and apps dropdown --> */}
-          <div class="relative group">
-            <button class="text-black font-semibold px-4 py-3 inline-flex items-center hover:bg-blue-200">
-              Tools and Apps{" "}
-              <svg
-                class="w-4 h-4 ml-1"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
-                  d="M19 9l-7 7-7-7"
-                ></path>
-              </svg>
-            </button>
-            <div class="absolute hidden group-hover:block bg-white shadow-lg mt-1 w-48">
-              <a
-                href="#"
-                class="block px-4 py-2 text-gray-700 hover:bg-gray-100"
-              >
-                Integration
-              </a>
-              <a
-                href="#"
-                class="block px-4 py-2 text-gray-700 hover:bg-gray-100"
-              >
-                API
-              </a>
-            </div>
-          </div>
-          {/* <!-- Pricing dropdown --> */}
-          <div class="relative group">
-            <button class="text-black font-semibold px-4 py-3 inline-flex items-center hover:bg-blue-200">
-              Pricing{" "}
-              <svg
-                class="w-4 h-4 ml-1"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
-                  d="M19 9l-7 7-7-7"
-                ></path>
-              </svg>
-            </button>
-            <div class="absolute hidden group-hover:block bg-white shadow-lg rounded-md mt-1 w-48">
-              <a
-                href="#"
-                class="block px-4 py-2 text-gray-700 hover:bg-gray-100"
-              >
-                Features
-              </a>
-              <a
-                href="#"
-                class="block px-4 py-2 text-gray-700 hover:bg-gray-100"
-              >
-                Partnerships
-              </a>
-            </div>
-          </div>
-          {/* <!-- Resources dropdown --> */}
-          <div class="relative group">
-            <button class="text-black font-semibold px-4 py-3 inline-flex items-center hover:bg-blue-200">
-              Resources{" "}
-              <svg
-                class="w-4 h-4 ml-1"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
-                  d="M19 9l-7 7-7-7"
-                ></path>
-              </svg>
-            </button>
-            <div class="absolute hidden group-hover:block bg-white shadow-lg mt-1 w-48">
-              <a
-                href="#"
-                class="block px-4 py-2 text-gray-700 hover:bg-gray-100"
-              >
-                Integration
-              </a>
-              <a
-                href="#"
-                class="block px-4 py-2 text-gray-700 hover:bg-gray-100"
-              >
-                API
-              </a>
-            </div>
-          </div>
-          {/* <!-- Pro sellers dropdown --> */}
-          <div class="relative group">
-            <button class="text-black font-semibold px-4 py-3 inline-flex items-center hover:bg-blue-200">
-              Pro sellers{" "}
-              <svg
-                class="w-4 h-4 ml-1"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
-                  d="M19 9l-7 7-7-7"
-                ></path>
-              </svg>
-            </button>
-            <div class="absolute hidden group-hover:block bg-white shadow-lg mt-1 w-48">
-              <a
-                href="#"
-                class="block px-4 py-2 text-gray-700 hover:bg-gray-100"
-              >
-                Integration
-              </a>
-              <a
-                href="#"
-                class="block px-4 py-2 text-gray-700 hover:bg-gray-100"
-              >
-                API
-              </a>
-            </div>
-          </div>
-          {/* <!-- GelatoConnect dropdown --> */}
-          <div class="relative group">
-            <button class="text-black font-semibold px-4 py-3 inline-flex items-center hover:bg-blue-200">
-              GelatoConnect{" "}
-              <svg
-                class="w-4 h-4 ml-1"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
-                  d="M19 9l-7 7-7-7"
-                ></path>
-              </svg>
-            </button>
-            <div class="absolute hidden group-hover:block bg-white shadow-lg mt-1 w-48">
-              <a
-                href="#"
-                class="block px-4 py-2 text-gray-700 hover:bg-gray-100"
-              >
-                Features
-              </a>
-              <a
-                href="#"
-                class="block px-4 py-2 text-gray-700 hover:bg-gray-100"
-              >
-                Partnerships
-              </a>
-            </div>
-          </div>
-        </div>
-      </nav>
+      {/* Main Content */}
+      <div className="flex justify-center items-center h-full">
+        <Card className="p-6 shadow-md">
+          <h1 className="text-3xl font-bold mb-4">
+            Hello with MUI and Tailwind
+          </h1>
+          <Typography variant="body1" className="mb-4">
+            This is an example of how to combine Material UI components with
+            Tailwind CSS utilities.
+          </Typography>
+          <Button variant="contained" color="primary" className="mt-4">
+            Click Me
+          </Button>
+        </Card>
+      </div>
     </div>
   );
 };
