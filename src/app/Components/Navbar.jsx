@@ -122,13 +122,13 @@ const Navbar = () => {
             {/* Contact Us */}
             <Button
               variant="text"
-              className="hidden lg:block"
               sx={{
+                display: { xs: "none", lg: "block" }, // Hides on small screens, shows on large screens
                 borderRadius: "50px",
                 textTransform: "none",
                 color: "black",
                 px: 1.5,
-                fontWeight: 550, // Setting font weight here
+                fontWeight: 550,
                 "&:hover": {
                   backgroundColor: "lightgray",
                 },
@@ -168,8 +168,9 @@ const Navbar = () => {
             {/* Cart */}
             <Button
               variant="text"
-              className="hidden md:block"
               sx={{
+                display: { xs: "none", md: "block" }, // Hides on small screens, shows on large screens
+
                 borderRadius: "50px",
                 textTransform: "none",
                 color: "black",
@@ -189,8 +190,9 @@ const Navbar = () => {
             {/* Sign In */}
             <Button
               variant="text"
-              className="hidden lg:block"
               sx={{
+                display: { xs: "none", lg: "block" }, // Hides on small screens, shows on large screens
+
                 borderRadius: "50px",
                 textTransform: "none",
                 color: "black",
