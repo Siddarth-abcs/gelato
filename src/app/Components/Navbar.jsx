@@ -7,30 +7,114 @@ import PersonIcon from "@mui/icons-material/Person";
 import ArrowDropDownIcon from "@mui/icons-material/ArrowDropDown";
 import LanguageIcon from "@mui/icons-material/Language";
 
+import Box from "@mui/material/Box";
+import Drawer from "@mui/material/Drawer";
+import List from "@mui/material/List";
+import Divider from "@mui/material/Divider";
+import ListItem from "@mui/material/ListItem";
+import ListItemButton from "@mui/material/ListItemButton";
+import ListItemIcon from "@mui/material/ListItemIcon";
+import ListItemText from "@mui/material/ListItemText";
+import InboxIcon from "@mui/icons-material/MoveToInbox";
+import MailIcon from "@mui/icons-material/Mail";
+import MenuIcon from "@mui/icons-material/Menu";
+import CloseIcon from "@mui/icons-material/Close";
+
 const Navbar = () => {
-  const [anchorEl, setAnchorEl] = React.useState(null);
-  const open = Boolean(anchorEl);
-  const handleClick = (event) => {
-    setAnchorEl(event.currentTarget);
-  };
-  const handleClose = () => {
-    setAnchorEl(null);
-  };
-
   const [selectedOption, setSelectedOption] = useState("IN/INR");
-
   const handleSelectChange = (event) => {
     setSelectedOption(event.target.value);
   };
+  const [open, setOpen] = React.useState(false);
+  const toggleDrawer = (newOpen) => () => {
+    setOpen(newOpen);
+  };
+
+  const DrawerList = (
+    <Box sx={{ width: 350 }} role="presentation">
+      <Divider />
+      <div className="flex justify-center">
+        <div className="w-full mx-2 py-4 border-b border-gray-200 flex items-center justify-around">
+          <button
+            onClick={toggleDrawer(false)}
+            className="hover:bg-gray-300 rounded-[50px] p-1"
+          >
+            <CloseIcon
+              sx={{
+                fontSize: 30,
+              }}
+            />
+          </button>
+          {/* Currency Selector */}
+          <div className="hidden  relative hover:bg-gray-300 rounded-full md:inline-flex items-center px-3 py-1 border-gray-300">
+            {/* Language Icon */}
+            <LanguageIcon className="text-black mr-2" />
+
+            {/* Selected Option Text */}
+            <span className="text-black mr-1 font-medium">
+              {selectedOption}
+            </span>
+
+            {/* Dropdown Icon */}
+            <ArrowDropDownIcon className="text-black" />
+
+            {/* Select Element (Hidden) */}
+            <select
+              value={selectedOption}
+              onChange={handleSelectChange}
+              className="absolute inset-0 w-full h-full opacity-0 cursor-pointer"
+            >
+              <option value="IN/INR">IN/INR</option>
+              <option value="US/USD">US/USD</option>
+              <option value="UK/GBP">UK/GBP</option>
+              <option value="FR/EUR">FR/EUR</option>
+              <option value="JP/JPY">JP/JPY</option>
+            </select>
+          </div>
+          <div className="h-full border-l-2 border-gray-200"></div>
+          {/* Cart */}
+          <Button
+            variant="text"
+            className="hidden md:block"
+            sx={{
+              borderRadius: "50px",
+              textTransform: "none",
+              color: "black",
+              px: 1.5,
+
+              fontWeight: 550, // Setting font weight here
+
+              "&:hover": {
+                backgroundColor: "lightgray",
+              },
+            }}
+          >
+            <ShoppingCartIcon sx={{ mr: 1 }} />
+            Cart
+          </Button>
+        </div>
+        <div></div>
+        <div></div>
+      </div>
+    </Box>
+  );
 
   return (
     // border-b-2 border-gray-200
     <div>
       <nav className="h-16 border-b-2 border-gray-200 bg-white flex justify-center">
         {/*top navbar Container */}
-        <div className="w-5/6 flex items-center justify-between">
+        <div className="w-full mx-1 md:w-5/6 flex items-center justify-between">
           {/* Logo */}
-          <div>
+          <div className="flex items-center">
+            <div className="xl:hidden">
+              <Button onClick={toggleDrawer(true)}>
+                <MenuIcon sx={{ color: "black", fontSize: 28 }} />
+              </Button>
+              <Drawer open={open} onClose={toggleDrawer(false)}>
+                {DrawerList}
+              </Drawer>
+            </div>
             <img src="/gelato_logo.svg" alt="Gelato" className="h-8" />
           </div>
 
@@ -39,6 +123,7 @@ const Navbar = () => {
             {/* Contact Us */}
             <Button
               variant="text"
+              className="hidden lg:block"
               sx={{
                 borderRadius: "50px",
                 textTransform: "none",
@@ -55,7 +140,7 @@ const Navbar = () => {
             </Button>
 
             {/* Currency Selector */}
-            <div className="relative hover:bg-gray-300 rounded-full inline-flex items-center px-3 py-1 border-gray-300">
+            <div className="hidden  relative hover:bg-gray-300 rounded-full md:inline-flex items-center px-3 py-1 border-gray-300">
               {/* Language Icon */}
               <LanguageIcon className="text-black mr-2" />
 
@@ -84,6 +169,7 @@ const Navbar = () => {
             {/* Cart */}
             <Button
               variant="text"
+              className="hidden md:block"
               sx={{
                 borderRadius: "50px",
                 textTransform: "none",
@@ -104,6 +190,7 @@ const Navbar = () => {
             {/* Sign In */}
             <Button
               variant="text"
+              className="hidden lg:block"
               sx={{
                 borderRadius: "50px",
                 textTransform: "none",
@@ -144,7 +231,7 @@ const Navbar = () => {
         </div>
       </nav>
       {/* dasktop bottom navbar */}
-      <nav class="flex justify-center items-center border-b-2 border-gray-200">
+      <nav class="hidden xl:flex justify-center items-center border-b-2 border-gray-200">
         {/* <!-- Left side: Navigation links --> */}
         <div class="w-5/6 flex text-[0.9rem]">
           {/* Products dropdown */}
