@@ -55,7 +55,7 @@ const Navbar = () => {
             </Button>
 
             {/* Currency Selector */}
-            <div className="relative inline-flex items-center px-3 py-1 border-gray-300">
+            <div className="relative hover:bg-gray-300 rounded-full inline-flex items-center px-3 py-1 border-gray-300">
               {/* Language Icon */}
               <LanguageIcon className="text-black mr-2" />
 
@@ -146,10 +146,10 @@ const Navbar = () => {
       {/* dasktop bottom navbar */}
       <nav class="flex justify-center items-center border-b-2 border-gray-200">
         {/* <!-- Left side: Navigation links --> */}
-        <div class="w-5/6 flex">
-          {/* <!-- Products dropdown --> */}
+        <div class="w-5/6 flex text-[0.9rem]">
+          {/* Products dropdown */}
           <div class="relative group">
-            <button class="text-black font-semibold px-4 py-3 inline-flex items-center hover:bg-blue-200">
+            <button class="text-black font-semibold p-3 inline-flex items-center hover:bg-blue-200">
               Products{" "}
               <svg
                 class="w-4 h-4 ml-1"
@@ -182,9 +182,9 @@ const Navbar = () => {
               </a>
             </div>
           </div>
-          {/* <!-- Start selling dropdown --> */}
+          {/* Start selling dropdown */}
           <div class="relative group">
-            <button class="text-black font-semibold px-4 py-3 inline-flex items-center hover:bg-blue-200">
+            <button class="text-black font-semibold p-3 inline-flex items-center hover:bg-blue-200">
               Start Selling{" "}
               <svg
                 class="w-4 h-4 ml-1"
@@ -216,9 +216,9 @@ const Navbar = () => {
               </a>
             </div>
           </div>
-          {/* <!-- Tools and apps dropdown --> */}
+          {/*  Tools and apps dropdown */}
           <div class="relative group">
-            <button class="text-black font-semibold px-4 py-3 inline-flex items-center hover:bg-blue-200">
+            <button class="text-black font-semibold p-3 inline-flex items-center hover:bg-blue-200">
               Tools and Apps{" "}
               <svg
                 class="w-4 h-4 ml-1"
@@ -250,9 +250,9 @@ const Navbar = () => {
               </a>
             </div>
           </div>
-          {/* <!-- Pricing dropdown --> */}
+          {/*  Pricing dropdown */}
           <div class="relative group">
-            <button class="text-black font-semibold px-4 py-3 inline-flex items-center hover:bg-blue-200">
+            <button class="text-black font-semibold p-3 inline-flex items-center hover:bg-blue-200">
               Pricing{" "}
               <svg
                 class="w-4 h-4 ml-1"
@@ -284,9 +284,9 @@ const Navbar = () => {
               </a>
             </div>
           </div>
-          {/* <!-- Resources dropdown --> */}
+          {/*  Resources dropdown */}
           <div class="relative group">
-            <button class="text-black font-semibold px-4 py-3 inline-flex items-center hover:bg-blue-200">
+            <button class="text-black font-semibold p-3 inline-flex items-center hover:bg-blue-200">
               Resources{" "}
               <svg
                 class="w-4 h-4 ml-1"
@@ -318,9 +318,9 @@ const Navbar = () => {
               </a>
             </div>
           </div>
-          {/* <!-- Pro sellers dropdown --> */}
+          {/*  Pro sellers dropdown */}
           <div class="relative group">
-            <button class="text-black font-semibold px-4 py-3 inline-flex items-center hover:bg-blue-200">
+            <button class="text-black font-semibold p-3 inline-flex items-center hover:bg-blue-200">
               Pro sellers{" "}
               <svg
                 class="w-4 h-4 ml-1"
@@ -352,9 +352,9 @@ const Navbar = () => {
               </a>
             </div>
           </div>
-          {/* <!-- GelatoConnect dropdown --> */}
+          {/*  GelatoConnect dropdown */}
           <div class="relative group">
-            <button class="text-black font-semibold px-4 py-3 inline-flex items-center hover:bg-blue-200">
+            <button class="text-black font-semibold p-3 inline-flex items-center hover:bg-blue-200">
               GelatoConnect{" "}
               <svg
                 class="w-4 h-4 ml-1"
