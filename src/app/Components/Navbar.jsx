@@ -1,15 +1,11 @@
 "use client";
-import React from "react";
+import React, { useState } from "react";
 import Button from "@mui/material/Button";
 import HeadsetMicIcon from "@mui/icons-material/HeadsetMic";
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 import PersonIcon from "@mui/icons-material/Person";
 import ArrowDropDownIcon from "@mui/icons-material/ArrowDropDown";
 import LanguageIcon from "@mui/icons-material/Language";
-
-import Menu from "@mui/material/Menu";
-import MenuItem from "@mui/material/MenuItem";
-import Fade from "@mui/material/Fade";
 
 const Navbar = () => {
   const [anchorEl, setAnchorEl] = React.useState(null);
@@ -19,6 +15,12 @@ const Navbar = () => {
   };
   const handleClose = () => {
     setAnchorEl(null);
+  };
+
+  const [selectedOption, setSelectedOption] = useState("IN/INR");
+
+  const handleSelectChange = (event) => {
+    setSelectedOption(event.target.value);
   };
 
   return (
@@ -53,25 +55,31 @@ const Navbar = () => {
             </Button>
 
             {/* Currency Selector */}
-            <Button
-              variant="text"
-              sx={{
-                borderRadius: "50px",
-                textTransform: "none",
-                color: "black",
-                px: 1.5,
+            <div className="relative inline-flex items-center px-3 py-1 border-gray-300">
+              {/* Language Icon */}
+              <LanguageIcon className="text-black mr-2" />
 
-                fontWeight: 550, // Setting font weight here
+              {/* Selected Option Text */}
+              <span className="text-black mr-1 font-medium">
+                {selectedOption}
+              </span>
 
-                "&:hover": {
-                  backgroundColor: "lightgray",
-                },
-              }}
-            >
-              <LanguageIcon />
-              <span className="mx-1">IN/INR</span>
-              <ArrowDropDownIcon />
-            </Button>
+              {/* Dropdown Icon */}
+              <ArrowDropDownIcon className="text-black" />
+
+              {/* Select Element (Hidden) */}
+              <select
+                value={selectedOption}
+                onChange={handleSelectChange}
+                className="absolute inset-0 w-full h-full opacity-0 cursor-pointer"
+              >
+                <option value="IN/INR">IN/INR</option>
+                <option value="US/USD">US/USD</option>
+                <option value="UK/GBP">UK/GBP</option>
+                <option value="FR/EUR">FR/EUR</option>
+                <option value="JP/JPY">JP/JPY</option>
+              </select>
+            </div>
 
             {/* Cart */}
             <Button
