@@ -46,7 +46,7 @@ const Navbar = () => {
             />
           </button>
           {/* Currency Selector */}
-          <div className="hidden  relative hover:bg-gray-300 rounded-full md:inline-flex items-center px-3 py-1 border-gray-300">
+          <div className="  relative hover:bg-gray-300 rounded-full inline-flex items-center px-3 py-1 border-gray-300">
             {/* Language Icon */}
             <LanguageIcon className="text-black mr-2" />
 
@@ -75,7 +75,6 @@ const Navbar = () => {
           {/* Cart */}
           <Button
             variant="text"
-            className="hidden md:block"
             sx={{
               borderRadius: "50px",
               textTransform: "none",
