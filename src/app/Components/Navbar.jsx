@@ -9,16 +9,12 @@ import LanguageIcon from "@mui/icons-material/Language";
 
 import Box from "@mui/material/Box";
 import Drawer from "@mui/material/Drawer";
-import List from "@mui/material/List";
 import Divider from "@mui/material/Divider";
-import ListItem from "@mui/material/ListItem";
-import ListItemButton from "@mui/material/ListItemButton";
-import ListItemIcon from "@mui/material/ListItemIcon";
-import ListItemText from "@mui/material/ListItemText";
-import InboxIcon from "@mui/icons-material/MoveToInbox";
-import MailIcon from "@mui/icons-material/Mail";
+import { List, ListItem, ListItemText, ListItemIcon } from "@mui/material";
+import { ChevronRight } from "@mui/icons-material";
 import MenuIcon from "@mui/icons-material/Menu";
 import CloseIcon from "@mui/icons-material/Close";
+import Link from "next/link";
 
 const Navbar = () => {
   const [selectedOption, setSelectedOption] = useState("IN/INR");
@@ -30,70 +26,145 @@ const Navbar = () => {
     setOpen(newOpen);
   };
 
+  const menuItems = [
+    { text: "Products" },
+    { text: "Start selling" },
+    { text: "Tools and apps" },
+    { text: "Pricing" },
+    { text: "Resources" },
+    { text: "Pro sellers" },
+    { text: "GelatoConnect" },
+  ];
+
   const DrawerList = (
-    <Box sx={{ width: 350 }} role="presentation">
+    <Box sx={{ width: 320 }} role="presentation">
       <Divider />
-      <div className="flex justify-center">
-        <div className="w-full mx-2 py-4 border-b border-gray-200 flex items-center justify-around">
-          <button
-            onClick={toggleDrawer(false)}
-            className="hover:bg-gray-300 rounded-[50px] p-1"
-          >
-            <CloseIcon
-              sx={{
-                fontSize: 30,
-              }}
-            />
-          </button>
-          {/* Currency Selector */}
-          <div className="  relative hover:bg-gray-300 rounded-full inline-flex items-center px-3 py-1 border-gray-300">
-            {/* Language Icon */}
-            <LanguageIcon className="text-black mr-2" />
+      <div className="flex flex-col justify-center">
+        {/* part1 */}
 
-            {/* Selected Option Text */}
-            <span className="text-black mr-1 font-medium">
-              {selectedOption}
-            </span>
-
-            {/* Dropdown Icon */}
-            <ArrowDropDownIcon className="text-black" />
-
-            {/* Select Element (Hidden) */}
-            <select
-              value={selectedOption}
-              onChange={handleSelectChange}
-              className="absolute inset-0 w-full h-full opacity-0 cursor-pointer"
+        <div className="w-full py-4 border-b border-gray-200 flex justify-center ">
+          <div className="w-11/12 flex items-center justify-around">
+            <button
+              onClick={toggleDrawer(false)}
+              className="hover:bg-gray-300 rounded-[50px] p-1"
             >
-              <option value="IN/INR">IN/INR</option>
-              <option value="US/USD">US/USD</option>
-              <option value="UK/GBP">UK/GBP</option>
-              <option value="FR/EUR">FR/EUR</option>
-              <option value="JP/JPY">JP/JPY</option>
-            </select>
+              <CloseIcon
+                sx={{
+                  fontSize: 30,
+                }}
+              />
+            </button>
+            {/* Currency Selector */}
+            <div className="  relative hover:bg-gray-300 rounded-full inline-flex items-center px-3 py-1 border-gray-300">
+              {/* Language Icon */}
+              <LanguageIcon className="text-black mr-2" />
+
+              {/* Selected Option Text */}
+              <span className="text-black mr-1 font-medium">
+                {selectedOption}
+              </span>
+
+              {/* Dropdown Icon */}
+              <ArrowDropDownIcon className="text-black" />
+
+              {/* Select Element (Hidden) */}
+              <select
+                value={selectedOption}
+                onChange={handleSelectChange}
+                className="absolute inset-0 w-full h-full opacity-0 cursor-pointer"
+              >
+                <option value="IN/INR">IN/INR</option>
+                <option value="US/USD">US/USD</option>
+                <option value="UK/GBP">UK/GBP</option>
+                <option value="FR/EUR">FR/EUR</option>
+                <option value="JP/JPY">JP/JPY</option>
+              </select>
+            </div>
+            <hr className="h-8 border-r-2 border-gray-300"></hr>
+            {/* Cart */}
+            <Button
+              variant="text"
+              sx={{
+                borderRadius: "50px",
+                textTransform: "none",
+                color: "black",
+                px: 1.5,
+
+                fontWeight: 550, // Setting font weight here
+
+                "&:hover": {
+                  backgroundColor: "lightgray",
+                },
+              }}
+            >
+              <ShoppingCartIcon sx={{ mr: 1 }} />
+              Cart
+            </Button>
           </div>
-          <div className="h-full border-l-2 border-gray-200"></div>
-          {/* Cart */}
-          <Button
-            variant="text"
-            sx={{
-              borderRadius: "50px",
-              textTransform: "none",
-              color: "black",
-              px: 1.5,
-
-              fontWeight: 550, // Setting font weight here
-
-              "&:hover": {
-                backgroundColor: "lightgray",
-              },
-            }}
-          >
-            <ShoppingCartIcon sx={{ mr: 1 }} />
-            Cart
-          </Button>
         </div>
-        <div></div>
-        <div></div>
+        {/* part2 */}
+        <div className="w-full py-4 border-b border-gray-200 flex justify-center">
+          <div className="w-11/12 flex items-center justify-around">
+            {/* Sign In */}
+            <Button
+              variant="text"
+              sx={{
+                borderRadius: "50px",
+                textTransform: "none",
+                color: "black",
+                px: 1.5,
+
+                fontWeight: 550, // Setting font weight here
+
+                "&:hover": {
+                  backgroundColor: "lightgray",
+                },
+              }}
+            >
+              <PersonIcon sx={{ mr: 1 }} />
+              Sign in
+            </Button>
+            {/* line */}
+            <hr className="h-8 border-r-2 border-gray-300"></hr>
+
+            {/* Sign Up */}
+            <Button
+              variant="contained"
+              sx={{
+                borderRadius: "50px",
+                textTransform: "none",
+                backgroundColor: "black",
+                px: 1.5,
+
+                fontWeight: 550, // Setting font weight here
+
+                color: "white",
+                "&:hover": {
+                  color: "darkgray",
+                },
+              }}
+            >
+              Sign up for free
+            </Button>
+          </div>
+        </div>
+        {/* part3 */}
+        <div className="pl-2 w-full flex items-center justify-around">
+          <div className="text-black w-full">
+            <List>
+              {menuItems.map((item, index) => (
+                <a href="#">
+                  <ListItem button key={index} className="hover:bg-gray-200">
+                    <ListItemText primary={item.text} />
+                    <ListItemIcon>
+                      <ChevronRight sx={{ color: "black" }} />
+                    </ListItemIcon>
+                  </ListItem>
+                </a>
+              ))}
+            </List>
+          </div>
+        </div>
       </div>
     </Box>
   );
@@ -103,9 +174,10 @@ const Navbar = () => {
     <div>
       <nav className="h-16 border-b-2 border-gray-200 bg-white flex justify-center">
         {/*top navbar Container */}
-        <div className="w-full mx-1 md:w-5/6 flex items-center justify-between">
-          {/* Logo */}
+        <div className="w-11/12 mx-1 sm:w-5/6 flex items-center justify-between">
+          {/* Logo & menu */}
           <div className="flex items-center">
+            {/* menu */}
             <div className="xl:hidden">
               <Button onClick={toggleDrawer(true)}>
                 <MenuIcon sx={{ color: "black", fontSize: 28 }} />
@@ -114,6 +186,7 @@ const Navbar = () => {
                 {DrawerList}
               </Drawer>
             </div>
+            {/* logo */}
             <img src="/gelato_logo.svg" alt="Gelato" className="h-8" />
           </div>
 
@@ -139,7 +212,7 @@ const Navbar = () => {
             </Button>
 
             {/* Currency Selector */}
-            <div className="hidden  relative hover:bg-gray-300 rounded-full md:inline-flex items-center px-3 py-1 border-gray-300">
+            <div className=" hidden  relative hover:bg-gray-300 rounded-full md:inline-flex items-center px-3 py-1 border-gray-300">
               {/* Language Icon */}
               <LanguageIcon className="text-black mr-2" />
 
@@ -217,7 +290,6 @@ const Navbar = () => {
                 textTransform: "none",
                 backgroundColor: "black",
                 px: 1.5,
-
                 fontWeight: 550, // Setting font weight here
 
                 color: "white",
