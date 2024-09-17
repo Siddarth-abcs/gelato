@@ -36,6 +36,7 @@ const Navbar = () => {
     { text: "GelatoConnect" },
   ];
 
+  // menu nav
   const DrawerList = (
     <Box sx={{ width: 320 }} role="presentation">
       <Divider />
@@ -171,7 +172,7 @@ const Navbar = () => {
 
   return (
     // border-b-2 border-gray-200
-    <div>
+    <div className="bg-white shadow-md sticky top-0 z-50">
       <nav className="h-16 border-b-2 border-gray-200 bg-white flex justify-center">
         {/*top navbar Container */}
         <div className="w-11/12 mx-1 sm:w-5/6 flex items-center justify-between">
