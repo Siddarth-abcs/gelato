@@ -172,8 +172,8 @@ const Navbar = () => {
 
   return (
     // border-b-2 border-gray-200
-    <div className="bg-white shadow-md sticky top-0 z-50">
-      <nav className="h-16 border-b-2 border-gray-200 bg-white flex justify-center">
+    <div className="bg-white sticky top-0 z-50">
+      <nav className="h-16 border-b border-gray-200 bg-white flex justify-center">
         {/*top navbar Container */}
         <div className="w-11/12 mx-1 sm:w-5/6 flex items-center justify-between">
           {/* Logo & menu */}
@@ -305,7 +305,7 @@ const Navbar = () => {
         </div>
       </nav>
       {/* dasktop bottom navbar */}
-      <nav class="hidden xl:flex justify-center items-center border-b-2 border-gray-200">
+      <nav class="hidden xl:flex justify-center py-1 items-center border-b border-gray-200">
         {/* <!-- Left side: Navigation links --> */}
         <div class="w-5/6 flex text-[0.9rem]">
           {/* Products dropdown */}

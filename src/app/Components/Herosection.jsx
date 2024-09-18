@@ -3,7 +3,7 @@ import React from "react";
 const Herosection = () => {
   return (
     // <!-- Hero Section -->
-    <div className="md:w-5/6 m-auto bg-gray-50 py-6 lg:py-8">
+    <div className="md:w-5/6 m-auto py-6 lg:py-8">
       <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
         {/* <!-- Image Section (now ordered first on mobile) --> */}
         <div className="relative px-6 lg:px-0 order-1 lg:order-2">
@@ -26,7 +26,7 @@ const Herosection = () => {
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-4 leading-tight text-gray-900">
             Print on demand for your ecommerce business
           </h1>
-          <p className="text-lg text-gray-700 mb-2">
+          <p className="text-xl font-bold mb-2">
             Sign up for free and only pay for what you sell
           </p>
           <p className="text-gray-600 mb-6">
@@ -34,6 +34,7 @@ const Herosection = () => {
             <a href="#" className="text-blue-500 underline">
               print on demand
             </a>{" "}
+            <br></br>
             network.
           </p>
 
