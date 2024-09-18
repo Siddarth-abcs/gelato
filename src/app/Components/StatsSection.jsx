@@ -2,7 +2,7 @@ import React from "react";
 
 const StatsSection = () => {
   return (
-    <div className="bg-gray-100 py-16 hidden md:block">
+    <div className="bg-gray-100 py-12 hidden md:block">
       <div className="max-w-7xl m-auto w-5/6 grid grid-cols-1 md:grid-cols-3 items-center gap-y-6 md:gap-x-10 text-center">
         <div>
           <span className="text-4xl font-medium">90%</span>
