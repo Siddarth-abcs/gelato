@@ -2,6 +2,7 @@ import Image from "next/image";
 import Navbar from "./Components/Navbar";
 import Herosection from "./Components/Herosection";
 import StatsSection from "./Components/StatsSection";
+import ChooseGelato from "./Components/chosegelate";
 
 export default function Home() {
   return (
@@ -12,6 +13,7 @@ export default function Home() {
       <Navbar />
       <Herosection />
       <StatsSection />
+      <ChooseGelato />
     </div>
   );
 }
