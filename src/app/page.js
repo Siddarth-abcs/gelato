@@ -3,6 +3,9 @@ import Navbar from "./Components/Navbar";
 import Herosection from "./Components/Herosection";
 import StatsSection from "./Components/StatsSection";
 import ChooseGelato from "./Components/chosegelate";
+import GelatoConnect from "./Components/GelatoConnect";
+import Metiamario from "./Components/Metiamario";
+import Footer from "./Components/Footer";
 
 export default function Home() {
   return (
@@ -14,6 +17,9 @@ export default function Home() {
       <Herosection />
       <StatsSection />
       <ChooseGelato />
+      <GelatoConnect />
+      <Metiamario />
+      {/* <Footer /> */}
     </div>
   );
 }
