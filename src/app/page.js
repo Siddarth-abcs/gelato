@@ -19,7 +19,7 @@ export default function Home() {
       <ChooseGelato />
       <GelatoConnect />
       <Metiamario />
-      {/* <Footer /> */}
+      <Footer />
     </div>
   );
 }
